@@ -1,3 +1,4 @@
+
 def unpack_annotation(path):
     """Unpacking labels from INFRIAPerson Dataset annotations
     Returns 3 vars: how many objects, centers and bounding boxes coordinates."""
@@ -9,6 +10,12 @@ def unpack_annotation(path):
     for line in lines:
         if not line.startswith('#') and line:
             buffer.append(line)
+
+    # Filename to match annotation with photo
+    filename = ''
+    for line in buffer:
+        if 'Image filename' in line:
+            filename = line.replace(' ', '').split(':')[1]
 
     # How many person-like objects in photo
     how_many = 0
@@ -47,4 +54,4 @@ def unpack_annotation(path):
             boxes.append((int(buf0[0]), int(buf0[1]), int(buf1[0]), int(buf1[1])))
             which_one += 1
 
-    return how_many, centers, boxes
+    return filename, how_many, centers, boxes
