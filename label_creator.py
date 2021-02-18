@@ -20,4 +20,4 @@ def create_frame(save=False, save_path=None):
     print(frame)
 
 
-create_frame(save=True, save_path='labels.csv')
+create_frame(save=True, save_path='data/labels.csv')
