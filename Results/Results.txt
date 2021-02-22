@@ -1,1 +1,4 @@
 First attempt - sample results of SqueezeNet human identification. Train data without augmentation - 614 samples.
+Second attempt - Data augmentation techniques have not improved results.
+Third attempt - Tracking one obcject instead of eight does not bring better results. 
+Conclusion - fine tuning may be required, weight initialization could be changed. SqueezeNets with bypasses has not been tested yet. Deeper network, like VGG-family network might be required for proper tracking.
