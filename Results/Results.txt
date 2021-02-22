@@ -1,0 +1,1 @@
+First attempt - sample results of SqueezeNet human identification. Train data without augmentation - 614 samples.
