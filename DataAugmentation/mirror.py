@@ -4,6 +4,10 @@ from PIL import Image, ImageOps
 
 
 def flip_image(path_open, path_save, path_frame):
+    """ Function mirroring image.
+        path_open - path to directory with images
+        path_save - directory where resized images should be saved
+        Bounding boxes are mirrored too."""
 
     frame = pd.read_csv(path_frame)
     frame_mirror = frame.copy()
@@ -15,7 +19,7 @@ def flip_image(path_open, path_save, path_frame):
         img = Image.open(os.path.join(path_open, file))
         width = img.width
         img = ImageOps.mirror(img)
-        # img.save(os.path.join(path_save, f'{alias}{core}'))
+        img.save(os.path.join(path_save, f'{alias}{core}'))
         slice_ = frame_mirror[frame_mirror.name == core]
         x_columns = [column for column in frame_mirror.columns if "X" in column and slice_[column].item() > 0]
         frame_mirror.loc[frame_mirror.name == core, x_columns] = frame_mirror.loc[frame_mirror.name == core, x_columns].apply(

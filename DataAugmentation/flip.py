@@ -4,6 +4,10 @@ from PIL import Image, ImageOps
 
 
 def flip_image(path_open, path_save, path_frame):
+    """ Function flipping image.
+        path_open - path to directory with images
+        path_save - directory where resized images should be saved
+        Bounding boxes are flipped too."""
 
     frame = pd.read_csv(path_frame)
     frame_flip = frame.copy()
